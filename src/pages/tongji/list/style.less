@@ -1,12 +1,76 @@
 @import '~antd/es/style/themes/default.less';
+.main {
+  background: #fff;
+  min-height: calc(100vh - 210px);
+  padding: 24px;
+  .tabs {
+    display: flex;
+    align-items: center;
+    .tab {
+      padding: 8px 12px;
+      background: #dbcece;
+      color: #333;
+      font-size: 15px;
+      border-radius: 12px;
+      cursor: pointer;
+      margin-right: 12px;
+    }
+    .tabActive {
+      background: #5065db;
+      color: #fff;
+    }
+  }
+  .content {
+    margin: 60px auto 0 auto;
+    width: 70%;
+    .title {
+      font-size: 18px;
+      color: #333;
+    }
+    .optioin {
+      margin-top: 24px;
+      width: 100%;
+      position: relative;
+      height: 40px;
+      border: 1px solid #e1e7f2;
+      border-radius: 4px;
+      box-shadow: 0px 3px 8px 0px rgba(224, 229, 236, 0.4);
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 12px;
+      .left {
+        position: relative;
+        z-index: 5;
+      }
+      .right {
+        z-index: 5;
+        span {
+          margin-right: 10px;
+          font-weight: bold;
+          display: inline-block;
+          width: fit-content;
+        }
+      }
+      .progress {
+        position: absolute;
+        background: #ddddff;
+        left: 0;
+        top: 0;
+        height: 100%;
+        z-index: 1;
+      }
+    }
+  }
+  .chartDom {
+    margin-top: 20px;
+    .chart {
+      border: 1px solid #eee;
+      margin-top: 12px;
+      padding: 12px;
+      height: 400px;
+    }
+  }
+}
 
-.table-img {
-  width: 48px;
-  height: 48px;
-  cursor: zoom-in;
-}
-.modal-img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}

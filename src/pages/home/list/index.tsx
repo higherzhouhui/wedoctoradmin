@@ -1,11 +1,9 @@
 import { PageContainer } from '@ant-design/pro-layout';
-import { Table } from 'antd';
-import React, { useEffect, useMemo, useRef, useState } from 'react';
-import type { ITongji, TableListItem } from './data';
+import React, { useEffect, useRef, useState } from 'react';
+import type { TableListItem } from './data';
 import { rule} from './service';
 import { Line } from '@ant-design/charts';
 import style from './style.less'
-import * as XLSX from 'xlsx';
 import { Pie, measureTextWidth } from '@ant-design/plots';
 import { formatTime } from '@/utils';
 import moment from 'moment';
@@ -51,81 +49,6 @@ const TableList: React.FC = () => {
       shape: 'diamond',
     },
   };
-  const data = [
-    {
-      type: '渠道1',
-      value: 27,
-    },
-    {
-      type: '渠道二',
-      value: 25,
-    },
-    {
-      type: '渠道三',
-      value: 18,
-    },
-    {
-      type: '渠道四',
-      value: 15,
-    },
-    {
-      type: '渠道五',
-      value: 10,
-    },
-    {
-      type: '其他',
-      value: 5,
-    },
-  ];
-  const data2 = [
-    {
-      type: '20以下',
-      value: 7,
-    },
-    {
-      type: '20-30',
-      value: 25,
-    },
-    {
-      type: '30-40',
-      value: 18,
-    },
-    {
-      type: '40-50',
-      value: 15,
-    },
-    {
-      type: '50-60',
-      value: 30,
-    },
-    {
-      type: '60以上',
-      value: 5,
-    },
-  ];
-
-  const data3 = [
-    {
-      type: '男',
-      value: 47,
-    },
-    {
-      type: '女',
-      value: 53,
-    }
-  ];
-
-  const data4 = [
-    {
-      type: '未完成',
-      value: 5,
-    },
-    {
-      type: '已完成',
-      value: 95,
-    }
-  ];
-
 
   const renderStatistic = (containerWidth: any, text: string, styles: any) => {
     const { width: textWidth, height: textHeight } = measureTextWidth(text, styles);
@@ -143,7 +66,6 @@ const TableList: React.FC = () => {
 
   const pieconfig = {
     appendPadding: 10,
-    data,
     angleField: 'value',
     colorField: 'type',
     radius: 1,
@@ -202,33 +124,6 @@ const TableList: React.FC = () => {
       },
     ],
   }
-  const getSummaryRow = (data: any[]) => {
-    const ctotal = data.reduce((total, current) => {
-      return total + Number(current.num);
-    }, 0);
-    // 自定义表格汇总行的内容
-    const totalRow = (
-      <Table.Summary fixed>
-      <Table.Summary.Row>
-        <Table.Summary.Cell index={0}>合计</Table.Summary.Cell>
-        <Table.Summary.Cell index={1} className={style.ctotal}>{ctotal}</Table.Summary.Cell>
-      </Table.Summary.Row>
-    </Table.Summary>
-    );
-  
-    return totalRow;
-  };
-  const userListRow = useMemo(() => getSummaryRow(dataSource?.userList || []), [dataSource]);
-  const buyProjectPriceListRow = useMemo(() => getSummaryRow(dataSource?.buyProjectPriceList || []), [dataSource]);
-  const buyProjectNumListRow = useMemo(() => getSummaryRow(dataSource?.buyProjectNumList || []), [dataSource]);
-  const withdrawPriceListRow = useMemo(() => getSummaryRow(dataSource?.withdrawPriceList || []), [dataSource]);
-
-  const export2Excel = (id: string, name: string) => {
-    const exportFileContent = document.getElementById(id)!.cloneNode(true);
-    const wb = XLSX.utils.table_to_book(exportFileContent, { sheet: 'sheet1' });
-    XLSX.writeFile(wb, `${name}.xlsx`);
-  };
-
 
   const initData = () => {
     setLoading(true)
@@ -253,9 +148,11 @@ const TableList: React.FC = () => {
     <span className={style.descibe}>平均完成时间：</span>
     <span className={style.theNumber}>{formatTime(dataSource?.avgTime / 1000) || '0'}</span>
   </div>
+
   useEffect(() => {
     initData()
   }, [day])
+
   return (
     <PageContainer content={contentDom}>
       <div className={style.main}>

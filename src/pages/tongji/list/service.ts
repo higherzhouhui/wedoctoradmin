@@ -71,3 +71,9 @@ export async function updateExpandRule(data: { [key: string]: any }, options?: {
     ...(options || {}),
   });
 }
+
+export async function getQuestionAndResult() {
+  return request<any>('/admin/questionandresult/list', {
+    method: 'GET',
+  });
+}
