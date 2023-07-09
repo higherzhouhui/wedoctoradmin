@@ -1,0 +1,95 @@
+@import '~antd/es/style/themes/default.less';
+
+.main {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  row-gap: 20px;
+  margin-top: 12px;
+  .topContent {
+    display: flex;
+    justify-content: space-between;
+  }
+  .item {
+    border: 1px solid #c0b7b7;
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+      line-height: 30px;
+      padding: 0 12px;
+    }
+  }
+}
+.ctotal {
+  color: red;
+  font-weight: bold;
+}
+.tongji {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 10px;
+  border-bottom: 1px solid #ccbfbf;
+  padding-bottom: 6px;
+  margin-bottom: 6px;
+  .item {
+    background: #ce4343;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    .ttitle {
+      font-size: 15px;
+      text-align: center;
+    }
+    .num {
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+  .item:nth-child(2) {
+    background: #4fc781;
+  }
+  .item:nth-child(3) {
+    background: #546bb6;
+  }
+  .item:nth-child(4) {
+    background: #aebb3e;
+  }
+}
+
+.pageContent {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  .descibe {
+    font-size: 15px;
+    margin-right: 3px;
+  }
+  .theNumber {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+}
+
+.bottom {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 10px;
+  @media screen and (max-width: 1440px) {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 20px;
+    column-gap: 20px;
+  }
+  .barChart {
+    background: #fff;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.06);
+    border-radius: 6px;
+  }
+  .title {
+    font-weight: bold;
+    border-bottom: 1px solid #ccc3c3;
+    line-height: 24px;
+    font-size: 16px;
+    padding: 8px 0 8px 50px;
+  }
+}

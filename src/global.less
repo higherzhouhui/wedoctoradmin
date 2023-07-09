@@ -1,0 +1,84 @@
+@import '~antd/es/style/themes/default.less';
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+.colorWeak {
+  filter: invert(80%);
+}
+
+.ant-layout {
+  min-height: 100vh;
+}
+.ant-pro-sider.ant-layout-sider.ant-pro-sider-fixed {
+  left: unset;
+}
+
+canvas {
+  display: block;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+@media (max-width: @screen-xs) {
+  .ant-table {
+    width: 100%;
+    overflow-x: auto;
+    &-thead > tr,
+    &-tbody > tr {
+      > th,
+      > td {
+        white-space: pre;
+        > span {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+// Compatible with IE11
+@media screen and(-ms-high-contrast: active), (-ms-high-contrast: none) {
+  body .ant-design-pro > .ant-layout {
+    min-height: 100vh;
+  }
+}
+
+.textAreaClass {
+  word-break: break-all;
+  max-height: 150px;
+  min-width: 300px;
+  overflow: auto;
+  display: flex;
+}
+.fullClass {
+  min-width: 200px;
+}
+.idClass {
+  min-width: 250px;
+}
+
+html ::-webkit-scrollbar {
+  width: 4px;
+  height: 8px;
+}
+html ::-webkit-scrollbar-track {
+  background: #fff;
+  border-radius: 3px;
+}
+html ::-webkit-scrollbar-thumb {
+  background: rgb(206, 206, 207);
+  border-radius: 3px;
+}

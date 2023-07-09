@@ -1,0 +1,127 @@
+@import '~antd/es/style/themes/default.less';
+.countTimeWrapper {
+  font-size: 15px;
+  line-height: 21px;
+}
+
+.pinlv {
+  display: inline-block;
+  margin-right: 12px;
+  font-weight: bold;
+}
+.list {
+  height: 400px;
+  overflow: auto;
+  background: #e6d8d8;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  position: relative;
+  border-radius: 12px;
+  h2 {
+    text-align: center;
+  }
+  @media screen and (max-width: 900px) {
+    height: 350px;
+    padding: 4px;
+    margin-bottom: 2px;
+    border-radius: 4px;
+    .listItem .avatar {
+      width: 35px;
+      height: 35px;
+      min-width: 35px;
+      min-height: 35px;
+      .content {
+        border-radius: 4px;
+        padding: 4px;
+      }
+    }
+  }
+}
+
+.listItem {
+  display: flex;
+  margin-bottom: 12px;
+  .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    object-fit: fill;
+    min-width: 50px;
+    min-height: 50px;
+    border: 1px solid #fff;
+  }
+  .contentImg {
+    width: 200px;
+  }
+  .content {
+    border-radius: 10px;
+    background: #fff;
+    display: inline-block;
+    padding: 6px;
+    margin-left: 12px;
+    p {
+      font-size: 12px;
+      opacity: 0.8;
+    }
+  }
+}
+
+.specialClass {
+  justify-content: flex-end;
+  .content {
+    margin-right: 12px;
+  }
+}
+.replyImg {
+  width: 300px;
+}
+
+.noticontent {
+  font-size: 14px;
+  color: #333;
+  .notiphone {
+    color: #000;
+    font-weight: bold;
+  }
+}
+
+.tableContent {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #c5bbbb;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  &:hover {
+    background: #ada8a8;
+  }
+  .left {
+    .top {
+      font-weight: bold;
+      font-size: 16px;
+    }
+    .bot {
+      font-size: 14px;
+      color: #000;
+      height: 24px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 24px;
+      word-break: break-all;
+
+    }
+  }
+  .right {
+    font-size: 12px;
+    color: #494040;
+    min-width: 120px;
+  }
+}
+.loadMore {
+  text-align: center;
+  border: 1px solid #eee;
+}
+
